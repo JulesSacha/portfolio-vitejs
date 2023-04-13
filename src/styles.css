@@ -276,3 +276,11 @@ transition: 0.3s;
 .symfony {
   color: #ffffff;
 }
+
+
+.navbarcon {
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.5s ease;
+}
