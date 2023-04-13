@@ -8,7 +8,125 @@
     <title>Reayhs Portfolio</title>
   </head>
   <body>
+    <canvas id="canvas1"></canvas>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script src="https://use.fontawesome.com/794b23fe32.js"></script>
+    <script>
+let canvas;
+let ctx;
+let flowField;
+let flowFieldAnimation;
+
+const MAX_CANVAS_WIDTH = 1200;
+
+// Initiation du canvas 
+window.onload = function () {
+    canvas = document.getElementById('canvas1');
+    ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    flowField = new FlowFieldEffect(ctx, canvas.width, canvas.height);
+    flowField.animate(0);
+}
+
+window.addEventListener('resize', function () { // pour rendre le canvas responsive
+    this.cancelAnimationFrame(flowFieldAnimation)
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    flowField = new FlowFieldEffect(ctx, canvas.width, canvas.height);
+    flowField.animate(0);
+
+});
+
+const mouse = {
+    x: 1000,
+    y: 1000,
+}
+window.addEventListener('mousemove', function (e) {
+    // Vérification des dimensions du canvas
+    if (canvas.width >= MAX_CANVAS_WIDTH) {
+        mouse.x = e.x;
+        mouse.y = e.y;
+    }
+});
+
+//creation de la class 
+class FlowFieldEffect {
+    #ctx;
+    #width;
+    #height;
+    constructor(ctx, width, height) {
+        this.#ctx = ctx;
+        this.#ctx.lineWidth = 2 ;
+        this.#height = height;
+        this.#width = width;
+        this.lastTime = 0;
+        this.interval = 1000 / 300;
+        this.timer = 0;
+        this.cellSize = 10;
+        this.gradient;
+        this.#createGradient();
+        this.#ctx.strokeStyle = this.gradient;
+        this.radius = 0;
+        this.vr = 0.01;
+
+    }
+
+    #createGradient() {
+    this.gradient = this.#ctx.createLinearGradient(0, 0, this.#width, this.#height);
+    this.gradient.addColorStop(0, '#0000ff'); // bleu foncé
+    this.gradient.addColorStop(0.25, '#4b0082'); // indigo
+    this.gradient.addColorStop(0.5, '#8a2be2'); // bleu-violet
+    this.gradient.addColorStop(1, '#ff00ff'); // magenta
+    this.#ctx.strokeStyle = this.gradient;
+}
+
+
+    #drawLine(angle, x, y) {
+         let positionX = x;
+         let positionY = y;
+         let dy = mouse.y - positionY ;
+         let dx = mouse.x - positionX ;
+         let distance = dx * dx + dy * dy;
+
+        const length = distance / 60000;
+        this.#ctx.beginPath();
+        this.#ctx.moveTo(x, y);
+        this.#ctx.lineTo(x + Math.cos(angle) * length, y + Math.sin(angle) * length);
+        this.#ctx.stroke();
+    }
+
+    animate(timeStamp) {
+        const deltaTime = timeStamp - this.lastTime;
+        this.lastTime = timeStamp;
+        if (this.timer > this.interval) {
+            this.#ctx.clearRect(0, 0, this.#width, this.#height);
+            this.radius += this.vr;
+            for (let y = 0; y < this.#height; y += this.cellSize) {
+                for (let x = 0; x < this.#width; x += this.cellSize) {
+                    const angle = (Math.cos(x * 0.01) + Math.sin(y * 0.01)) * this.radius;
+                    this.#drawLine(angle, x, y);
+
+                }
+            }
+            this.timer = 0;
+
+        } else {
+            this.timer += deltaTime;
+        }
+        flowFieldAnimation = requestAnimationFrame(this.animate.bind(this));
+
+    }
+}
+
+
+
+
+
+
+
+
+    </script>
   </body>
 </html>

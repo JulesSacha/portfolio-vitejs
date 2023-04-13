@@ -6,18 +6,15 @@ import "../styles.css";
 import { Navigation } from "swiper";
 import { Pagination } from "swiper";
 import img from "../assets/images/meter1.svg";
-import bg from "../assets/images/banner-bg.png"
 
 function Skills() {
   return (
     <>
-      <div id="skills" style={{backgroundImage: `url(${bg})`}} className="wrapper h-full bg-no-repeat bg-center bg-cover p-16 lg:p-4">
-        <div className="skills-wrapper text-center text-white bg-[#171717]  p-10 rounded-[50px] lg:p-2">
-          <h1 className="text-4xl ">Skills</h1>
-          <p className="text-lg py-3">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          </p>
-          <div className="box flex  justify-between  items-center bg-[#171717] my-6">
+      <div id="skills"  className="wrapper h-full  p-16 lg:p-4">
+        <div className="skills-wrapper text-center text-white  p-10 rounded-[px] lg:p-2">
+        <h1 className="text-center text-4xl font-bold py-6">Skills</h1>
+ 
+          <div className="box flex  justify-between  items-center">
             <Swiper
               slidesPerView={3}
               spaceBetween={40}
@@ -28,41 +25,23 @@ function Skills() {
               modules={[Navigation, Pagination]}
               className="mySwiper "
             >
-              <SwiperSlide className="bg-[#171717]">
+
+              <SwiperSlide className="skill-item react">
                 {" "}
-                <div className=" bg-[#171717]">
-                  <img src={img} alt="" />
-                  <h1 className="font-bold text-2xl my-2">Web Dev</h1>
-                </div>
+                <i class="fa-brands fa-react"></i>
               </SwiperSlide>
-              <SwiperSlide className=" bg-[#171717]">
+              <SwiperSlide className="skill-item js">
                 {" "}
-                <div className=" bg-[#171717]">
-                  <img src={img} alt="" />
-                  <h1 className="font-bold text-2xl my-2">Frontend </h1>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className=" bg-[#171717]">
-                {" "}
-                <div className=" bg-[#171717]">
-                  <img src={img} alt="" />
-                  <h1 className="font-bold text-2xl my-2">React.js</h1>
-                </div>
+                <i class="fa-brands fa-js"></i>
               </SwiperSlide>
 
-              <SwiperSlide className=" bg-[#171717]">
+              <SwiperSlide className="skill-item symfony">
                 {" "}
-                <div className=" bg-[#171717]">
-                  <img src={img} alt="" />
-                  <h1 className="font-bold text-2xl my-2">Javascript</h1>
-                </div>
+                <i class="fa-brands fa-symfony"></i>
               </SwiperSlide>
-              <SwiperSlide className=" bg-[#171717]">
+              <SwiperSlide className="skill-item bootstrap">
                 {" "}
-                <div className=" bg-[#171717]">
-                  <img src={img} alt="" />
-                  <h1 className="font-bold text-2xl my-2">Tailwind</h1>
-                </div>
+                <i class="fa-brands fa-bootstrap"></i>
               </SwiperSlide>
             </Swiper>
           </div>
