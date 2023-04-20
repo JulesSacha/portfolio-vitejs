@@ -3,8 +3,8 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import "../styles.css";
 
 function Navbar() {
-  const [durum, setDurum] = useState(true);
-  console.log(durum);
+  const [Project, setProject] = useState(true);
+  console.log(Project);
 
   window.onscroll = function () {
     scrollFunction();
@@ -30,7 +30,7 @@ function Navbar() {
 
         <nav
           className={` flex justify-center items-center gap-x-10 ${
-            durum && "lg:hidden"
+            Project && "lg:hidden"
           } lg:fixed lg:top-0 -z-20  lg:flex-col lg:w-full lg:bg-[#171717]  lg:h-[450px] lg:left-0 h-full lg:items-start  lg:pl-6  cursor-pointer lg:pt-20`}
         >
           <ul className=" flex gap-10 text-3xl mr-4 lg:flex-col lg:gap-6 ">
@@ -46,28 +46,21 @@ function Navbar() {
           </ul>
 
           <div className="icon text-lg flex gap-4  lg:gap-8 lg:my-10">
-            <a href="https://twitter.com/reayhs" target="_blank">
-              <i className="fa-brands fa-twitter border-[1px] border-white p-2 rounded-[100%] hover:bg-white hover:text-black"></i>
+            <a href="https://www.linkedin.com/in/jules-fernsner-9a3982180/" target="_blank">
+              <i className="fa-brands fa-linkedin border-[1px] border-white p-2 rounded-[100%] hover:bg-white hover:text-black"></i>
             </a>
 
-            <a href="https://www.instagram.com/iburakz/" target="_blank">
-              <i className="fa-brands fa-instagram border-[1px] border-white p-2 rounded-[100%] hover:bg-white hover:text-black"></i>
-            </a>
             <a
-              href="https://github.com/Reayhs/react-tailwind-portfolio"
+              href="https://github.com/julessacha"
               target="_blank"
             >
               <i className="fa-brands fa-github border-[1px] border-white p-2 rounded-[100%] hover:bg-white hover:text-black"></i>
             </a>
           </div>
-          <div className="btn">
-            <button className="border-[1px] border-white border-solid py-2 px-4 hover:bg-white hover:text-black font-bold">
-              Let's Connect
-            </button>
-          </div>
+
         </nav>
         <i
-          onClick={(e) => setDurum(!durum)}
+          onClick={(e) => setProject(!Project)}
           className="fa-solid fa-bars hidden lg:block text-2xl cursor-pointer"
         ></i>
       </div>

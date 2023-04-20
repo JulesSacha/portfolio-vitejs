@@ -19,8 +19,10 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",
     "react-slick": "^0.29.0",
+    "react-spinners": "^0.13.8",
     "reactjs-popup": "^2.0.5",
     "remixicon": "^3.0.0",
+    "save": "^2.9.0",
     "swiper": "^8.4.6",
     "three": "^0.151.2"
   },

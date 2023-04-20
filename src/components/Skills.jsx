@@ -30,6 +30,10 @@ function Skills() {
                 {" "}
                 <i class="fa-brands fa-react"></i>
               </SwiperSlide>
+              <SwiperSlide className="skill-item php">
+                {" "}
+                <i class="fa-brands fa-php"></i>
+              </SwiperSlide>
               <SwiperSlide className="skill-item js">
                 {" "}
                 <i class="fa-brands fa-js"></i>
@@ -43,6 +47,7 @@ function Skills() {
                 {" "}
                 <i class="fa-brands fa-bootstrap"></i>
               </SwiperSlide>
+   
             </Swiper>
           </div>
         </div>

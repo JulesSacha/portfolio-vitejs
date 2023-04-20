@@ -21,9 +21,15 @@
     -webkit-align-items: center;
     align-items: center;
   }
+
+  img{
+    min-height: 225px;
+
+  }
   
   .swiper-slide img {
     display: block;
+    min-height: 350px;
     width: 100%;
     height: 100%;
     object-fit: cover;
